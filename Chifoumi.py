@@ -2,7 +2,7 @@
 
 # Add library
 from random import*
-from Test_variable_chifoumi import*
+from Test_variable import*
 
 # Initialitisation Score
 
@@ -30,7 +30,7 @@ def Game():
             
             # Ask for number (player/IA)
 
-            choice_player:int = Ask_int('1 -> Pierre | 2 -> Feuille | 3 -> Ciseaux : ')
+            choice_player:int = Ask_int('1 -> Pierre | 2 -> Feuille | 3 -> Ciseaux : ',1,3)
             choice_player -=1
             choice_AI:int = randint(1,3)
             choice_AI -=1
@@ -64,7 +64,7 @@ def Game():
         
         final_result: list[str]= \
             [
-                "Vous avez Perdu la parti", "Vous avez Gagné la parti"
+                "Vous avez Perdu la partie", "Vous avez Gagné la partie"
             ]
 
         result_player: int = score_P1//3
@@ -78,7 +78,7 @@ def Game():
         Restart:str = Ask_Input("Rejouer --> 'O' / 'OUI' | STOP --> 'N' / 'NON' : ",autorisation_key_restart)
 
         if(Restart.upper() == autorisation_key_restart[0] or Restart.upper() == autorisation_key_restart[1]):
-            print('PARTI RELANCER !')
+            print('PARTIE RELANCEE !')
             Play = True
         else:
             print('À une prochaine fois.')

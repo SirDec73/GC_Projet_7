@@ -3,36 +3,12 @@
 # Add library
 
 from random import*
+from Test_variable import*
 
 # Array Value
 
 autorisation_key_restart:list = ['O','OUI','N','NON']
 
-# Test Variable
-
-def Ask_int(message:str, min:int = 1, max:int = 100):
-    while True:
-            try:
-                Verif:int = int(input(message))
-
-                if (Verif < min or Verif > max):
-                    print('Rappel des bornes min et max : [',min,',',max,']')
-
-                else:
-                    break
-
-            except ValueError:
-                print('ERROR')
-
-    return Verif
-
-def Ask_Input(message:str, sAuthorized: list):
-
-    while True:
-
-        Verif:str = input(message)
-        if (Verif.upper() in sAuthorized):
-            return Verif
 
 # Start Game
 def Game():
@@ -49,7 +25,7 @@ def Game():
 
         # Ask for maximun try
 
-        essai:int = Ask_int("combien d'essaie te donne tu (de 1 à 8) ? ",1,8)
+        essai:int = Ask_int("combien d'essais te donnes tu (de 1 à 8) ? ",1,8)
 
         # Ask for a number | Verification choice number
 
@@ -73,15 +49,12 @@ def Game():
                 print('PERDU')
                 break
         Play=False
-        Restart()
-        break
 
-# End Game | Ask for restart
-def Restart():
+    # End Game | Ask for restart
     Restart:bool = Ask_Input("Rejouer --> 'O' / 'OUI' | STOP --> 'N' / 'NON' : ",autorisation_key_restart)
     if(Restart.upper() == autorisation_key_restart[0] or Restart.upper() == autorisation_key_restart[1]):
-        print('PARTI RELANCER !')
-        Game()
+        print('PARTIE RELANCEE !')
+        Play=True
     else:
         print('À une prochaine fois.')
 
