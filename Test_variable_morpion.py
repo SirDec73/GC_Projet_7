@@ -1,13 +1,12 @@
 # Test Variable
 def Ask_int(message:str, min:int = 1, max:int = 1, pos:list=[]):
     while True:
-
         try:
             Verif:int = int(input(message))
             if (Verif >= min and Verif <= max):   
                 if (Verif in pos):
                     return Verif
-                else:
+                elif len(pos)<=0:   # For the first input when the player is choosing the grid pos => empty -> return the input
                     return Verif
             print('Choice already taken or out of range')
             print('Reminder of the min and max terminals: [',min,',',max,']')
